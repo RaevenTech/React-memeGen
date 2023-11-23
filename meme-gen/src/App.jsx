@@ -1,13 +1,15 @@
 import './App.css'
-import Header from './components/Header.js'
+import Header from './components/Header.jsx'
+import Meme from './components/Meme.jsx'
 
 function App() {
 
   return (
     <>
-      <h1 className="main_container">
+      <div className="main_container">
         <Header />
-      </h1>
+        <Meme />
+      </div>
     </>
   )
 }

@@ -29,3 +29,16 @@
   background: rgb(61, 3, 103);
   background: linear-gradient(90deg, rgba(61, 3, 103, 1) 29%, rgba(84, 2, 143, 1) 75%);
 }
+
+.image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meme_img {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+}

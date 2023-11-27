@@ -1,15 +1,17 @@
 import "./meme.css"
 import memsdata from "../../memsdata"
+import { useState } from "react"
 
 const Meme = () => {
+  const [memeImage, setMemeImage] = useState("")
 
   const getRandomImage = () => {
     const randomIndex = Math.floor(Math.random() * memsdata.data.memes.length)
     const randomMeme = memsdata.data.memes[randomIndex].url
-    console.log(randomMeme)
-    return randomMeme
-    // console.log(randomIndex)
+    return setMemeImage(randomMeme)
+
   }
+
 
   return (
     <main>
@@ -18,6 +20,10 @@ const Meme = () => {
         <input className="txt_input" type="text" placeholder="bottom text" />
       </div>
       <button className="get_meme_btn" onClick={getRandomImage}>Get new meme image!</button>
+      <div className="image">
+        <img src={memeImage} alt="Meme" className="meme_img" />
+      </div>
+
     </main>
   )
 }

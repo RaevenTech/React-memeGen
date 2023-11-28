@@ -3,13 +3,23 @@ import memsdata from "../../memsdata"
 import { useState } from "react"
 
 const Meme = () => {
-  const [memeImage, setMemeImage] = useState("")
+
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg"
+  })
+
+  const [allMemeImages] = useState(memsdata)
+  console.log(allMemeImages)
 
   const getRandomImage = () => {
-    const randomIndex = Math.floor(Math.random() * memsdata.data.memes.length)
-    const randomMeme = memsdata.data.memes[randomIndex].url
-    return setMemeImage(randomMeme)
-
+    const randomIndex = Math.floor(Math.random() * allMemeImages.data.memes.length)
+    const randomMemeUrl = allMemeImages.data.memes[randomIndex].url
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      randomImage: randomMemeUrl
+    }))
   }
 
 
@@ -21,7 +31,7 @@ const Meme = () => {
       </div>
       <button className="get_meme_btn" onClick={getRandomImage}>Get new meme image!</button>
       <div className="image">
-        <img src={memeImage} alt="Meme" className="meme_img" />
+        <img src={meme.randomImage} className="meme_img" alt="CLICK BUTTON TO GET A NEW IMAGE" />
       </div>
 
     </main>
